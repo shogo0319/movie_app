@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import axios from 'axios';
 import React from 'react'
 
@@ -8,7 +8,7 @@ const Detail = ({detail}) => {
   return (
     <Box
         sx={{
-            height: "70vh",bgcolor: "red", position: "relative"
+            height: {xs: "auto", md: "70vh"},bgcolor: "red", position: "relative",display: "flex", alignItems: "center",
         }}
     >
         <Box
@@ -36,10 +36,16 @@ const Detail = ({detail}) => {
             }}
         />
 
-        <Container>
-            <Grid>
-                <Grid item>ポスター画像です</Grid>
-                <Grid item>作品情報</Grid>
+        <Container sx={{zIndex: 1}}>
+            <Grid sx={{color: "white"}} container alignItems={"center"}>
+                <Grid item md={4} sx={{display: "flex", justifyContent: "center"}}>
+                    <img width={"70%"} src={`https://image.tmdb.org/t/p/original/${detail.poster_path}`} alt="" />
+                </Grid>
+                <Grid item md={8}>
+                    <Typography variant="h4" paragraph>{detail.title}</Typography>
+                    <Typography>{detail.overview}</Typography>
+                    <Typography variant="h6">公開日:{detail.release_date}</Typography>
+                </Grid>
             </Grid>
         </Container>
     </Box>
