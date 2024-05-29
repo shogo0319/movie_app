@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { CardActionArea, CardMedia, Typography } from '@mui/material';
 import Link from 'next/link';
+import SearchBar from '@/components/SearchBar';
 
 const Dashboard = () => {
     const[movies,setMovies] = useState([]);
@@ -35,6 +36,8 @@ const Dashboard = () => {
             <Head>
                 <title>Laravel - Dashboard</title>
             </Head>
+
+            <SearchBar />
 
             <Swiper
             spaceBetween={30}
